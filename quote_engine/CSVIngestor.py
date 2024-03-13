@@ -5,7 +5,7 @@ from .IngestorInterface import IngestorInterface
 from .Quote import Quote
 
 
-class CSVImporter(IngestorInterface):
+class CSVIngestor(IngestorInterface):
     allowed_extensions = ['csv']
 
     @classmethod

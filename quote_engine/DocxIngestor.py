@@ -5,7 +5,7 @@ from .IngestorInterface import IngestorInterface
 from .Quote import Quote
 
 
-class DocxImporter(IngestorInterface):
+class DocxIngestor(IngestorInterface):
     allowed_extensions = ['docx']
 
     def parse(cls, file_path: str) -> List[Quote]:
