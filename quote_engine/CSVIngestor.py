@@ -1,5 +1,5 @@
 from typing import List
-import csv
+import pandas
 
 from .IngestorInterface import IngestorInterface
 from .Quote import Quote
@@ -14,10 +14,9 @@ class CSVIngestor(IngestorInterface):
             raise Exception('Cannot ingest file')
 
         quotes = []
-        with open(file_path) as x:
-            reader = csv.reader(x)
-            next(reader, None)
-            for line in reader:
-                quotes.append(Quote(line[1], line[0]))
+        open_file = pandas.read_csv(file_path, header=0)
+        for index, row in open_file.iterrows():
+            new_quote = Quote(row[1], row[0])
+            quotes.append(new_quote)
 
             return quotes
