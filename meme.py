@@ -1,5 +1,8 @@
 import os
 import random
+from quote_engine import Ingestor, Quote
+from meme_generator import MemeGenerator
+
 
 # @TODO Import your Ingestor and MemeEngine classes
 
@@ -32,9 +35,9 @@ def generate_meme(path=None, body=None, author=None):
     else:
         if author is None:
             raise Exception('Author Required if Body is Used')
-        quote = QuoteModel(body, author)
+        quote = Quote(body, author)
 
-    meme = MemeEngine('./tmp')
+    meme = MemeGenerator('./tmp')
     path = meme.make_meme(img, quote.body, quote.author)
     return path
 

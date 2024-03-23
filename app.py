@@ -1,14 +1,12 @@
-import random
-import os
-import requests
 from quote_engine import Ingestor
-from flask import Flask, render_template, abort, request
+from meme_generator import MemeGenerator
+from flask import Flask, render_template
 
 # @TODO Import your Ingestor and MemeEngine classes
 
 app = Flask(__name__)
 
-meme = MemeEngine('./static')
+meme = MemeGenerator('./static')
 
 
 def setup():
@@ -21,7 +19,7 @@ def setup():
 
     # TODO: Use the Ingestor class to parse all files in the
     # quote_files variable
-    quotes = None
+    quotes = Ingestor.parse(quote_files)
 
     images_path = "./_data/photos/dog/"
 
