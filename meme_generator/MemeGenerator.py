@@ -23,7 +23,7 @@ def generate_meme(in_path, out_path, message=None, crop=None, width=None):
 
     if message is not None:
         draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype('./fonts/LilitaOne-Regular.ttf', size=20)
+        font = ImageFont.truetype('~/System/Library/Fonts/Supplemental/Arial Bold Italic.ttf', size=20)
         draw.text((10, 30), message, font=font, fill='white')
 
     img.save(out_path)

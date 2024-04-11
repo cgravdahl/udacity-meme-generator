@@ -18,10 +18,9 @@ class TextIngestor(IngestorInterface):
         for line in file_ref.readlines():
             line = line.strip('\n\r').strip()
             if len(line) > 0:
-                parsed = line.split(',')
+                parsed = line.split('-')
                 new_quote = Quote(parsed[1], parsed[0])
                 quotes.append(new_quote)
 
         file_ref.close()
-        os.remove(file_path)
         return quotes
